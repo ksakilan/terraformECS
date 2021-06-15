@@ -47,7 +47,7 @@ resource "aws_instance" "ECS_Web" {
   instance_type        = "t2.micro"
   key_name             = var.key_name
   iam_instance_profile = aws_iam_instance_profile.ecs_service_role.name
-  security_groups = aws_security_group.ec2-sg.id
+  security_groups             = [aws_security_group.ec2-sg.id]
   associate_public_ip_address = true
   user_data                   = <<EOF
 #! /bin/bash
